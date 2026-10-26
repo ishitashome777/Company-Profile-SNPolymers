@@ -498,8 +498,8 @@ a{color:#0047AB}a:hover{color:#002F74}
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   if('IntersectionObserver' in window){
     root.classList.add('mr');
-    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:0.12});
-    root.querySelectorAll('.rv,.frame,.cnt').forEach(function(el){ro.observe(el);});
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.frame').forEach(function(f){f.classList.add('in');});ro.unobserve(e.target);}});},{threshold:0.12});
+    root.querySelectorAll('.rv,.cnt').forEach(function(el){ro.observe(el);});
   }
   var hero=root.querySelector('.hero'), fx=root.querySelector('.hero-fx');
   if(hero&&fx){
